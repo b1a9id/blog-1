@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*
 
 @Controller
 @RequestMapping("/blog")
-class MainController() {
+class MainController {
 
     @Autowired
     lateinit var articleService: ArticleService
