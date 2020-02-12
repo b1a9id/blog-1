@@ -1,5 +1,3 @@
-import com.sun.corba.se.impl.encoding.CodeSetConversion
-
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.3.50'
     id 'org.springframework.boot' version '2.1.3.RELEASE'
@@ -51,7 +49,6 @@ dependencies {
     //spring
     implementation 'org.springframework.boot:spring-boot-devtools' //すぐ反映させてくれる
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.cloud:spring-cloud-stream'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 
     // database
