@@ -2,7 +2,6 @@ package com.blog.stury.crud.rest.controller
 
 import com.blog.stury.crud.rest.entity.Article
 import com.blog.stury.crud.rest.service.ArticleService
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 
@@ -12,10 +11,7 @@ import org.springframework.web.bind.annotation.*
 
 @Controller
 @RequestMapping("/blog")
-class MainController {
-
-    @Autowired
-    lateinit var articleService: ArticleService
+class MainController(private val articleService: ArticleService) {
 
     @RequestMapping("/main")
     fun mainPage():String{
