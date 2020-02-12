@@ -6,10 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
 import java.lang.Exception
-import javax.validation.Valid
 
 
 // @Controller + @ResponseBody -> @RestController
+// @Controllerは画面遷移するけど＠RestControllerは画面遷移しない
 
 @Controller
 @RequestMapping("/blog")
@@ -17,6 +17,11 @@ class MainController() {
 
     @Autowired
     lateinit var articleService: ArticleService
+
+    @RequestMapping("/main")
+    fun mainPage():String{
+        return "Main"
+    }
 
     @RequestMapping("/")
     fun hogehoge():String{return "hogehogeghoege"}
@@ -29,7 +34,7 @@ class MainController() {
 
     @RequestMapping("/title", method = [RequestMethod.GET, RequestMethod.POST])
     fun getTitle(): String {
-        return articleService.findAllArticles().toString()
+        return articleService.findById(1).title
     }
 
 //    @PostMapping

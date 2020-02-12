@@ -42,9 +42,14 @@ dependencies {
     implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
 
+    // thymeleaf
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    compile group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.11.RELEASE'
+    compile group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.4.1'
 
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
     //spring
+    implementation 'org.springframework.boot:spring-boot-devtools' //すぐ反映させてくれる
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-stream'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -53,7 +58,7 @@ dependencies {
     runtimeOnly 'mysql:mysql-connector-java'
     runtimeOnly 'com.h2database:h2'
 
-    test
+    //test
     testImplementation 'org.springframework.cloud:spring-cloud-stream-test-support'
     testImplementation('org.junit.jupiter:junit-jupiter-api')
     testImplementation("com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoVersion")
@@ -62,6 +67,9 @@ dependencies {
         exclude group: 'junit'
     }
 }
+
+//ext['thymeleaf.version'] = '3.0.7.RELEASE'
+//ext['thymeleaf-layout-dialect.version'] = '2.2.2'
 
 test {
     useJUnitPlatform()
