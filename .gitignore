@@ -1,0 +1,4 @@
+config/application.yml
+.idea/
+gradle/
+.gradle
