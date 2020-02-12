@@ -1,7 +1,7 @@
 package com.blog.stury.crud.rest.service
 
-import com.blog.stury.crud.rest.blog.ArticleRepository
-import com.blog.stury.crud.rest.blog.dto.Article
+import com.blog.stury.crud.rest.repository.ArticleRepository
+import com.blog.stury.crud.rest.entity.Article
 import org.springframework.stereotype.Service
 
 @Service
@@ -15,7 +15,7 @@ class ArticleService(private val articleRepository: ArticleRepository) {
         return articleRepository.findAll().map { it.title }
     }
 
-    fun findById(id:Int):Article{
+    fun findById(id:Int): Article {
         return articleRepository.findById(id).get()
     }
 
@@ -23,7 +23,7 @@ class ArticleService(private val articleRepository: ArticleRepository) {
         return articleRepository.findAll()
     }
 
-    fun addArticle(article:Article){
+    fun addArticle(article: Article){
         articleRepository.save(article)
     }
 

@@ -1,11 +1,10 @@
 package com.blog.stury.crud.rest.controller
 
-import com.blog.stury.crud.rest.blog.dto.Article
+import com.blog.stury.crud.rest.entity.Article
 import com.blog.stury.crud.rest.service.ArticleService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Controller
 import org.springframework.web.bind.annotation.*
-import java.lang.Exception
 
 
 // @Controller + @ResponseBody -> @RestController
