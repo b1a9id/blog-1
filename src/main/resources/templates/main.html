@@ -1,16 +1,71 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/img.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="../js/kickstart.js"></script>
-    <link rel="stylesheet" href="../css/kickstart.css" media="all"/>
-    <link rel="stylesheet" href="../css/tag.css" type="text/css">
-    <meta charset="utf-8" />
+    <script th:src="@{/js/kickstart.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/img.css}">
+    <link rel="stylesheet" th:href="@{/css/kickstart.css}" media="all"/>
+    <link rel="stylesheet" th:href="@{/css/tag.css}" type="text/css">
+    <meta charset="utf-8"/>
     <title>blog</title>
 </head>
 <body>
-<h1>HelloWorld</h1>
-<button type="button" class="pill large pink">test<i class="fa fa-apple"></i></button>
+<h1>Blog</h1>
+<button id="new_btn" value="hide" type="button" class="pill large blue">New<i class="fa fa-apple"></i></button>
+
+<table style="display:none" id="blog_table">
+    <tr>
+        <td>Title :</td>
+        <td><input type="text" id="blog_title" placeholder="title"/></td>
+    </tr>
+    <tr>
+        <td>Content :</td>
+        <td><textarea id="blog_content" placeholder="Write your blog"></textarea></td>
+    </tr>
+    <tr>
+        <td>Genre :</td>
+        <td>
+            <select id="genre_pulldown">
+                <option value="0">-- Choose --</option>
+                <option value="1">仕事</option>
+                <option value="2">映画</option>
+                <option value="3">小説</option>
+            </select></td>
+    </tr>
+    <tr>
+        <td>
+            <button id="reset_btn" class="inset red"><i class="fa fa-minus-square"></i>RESET</button>
+        </td>
+        <td>
+            <button id="register_btn" class="pink"><i class="fa fa-plus-square"></i>REGISTER</button>
+        </td>
+    </tr>
+
+
+</table>
+
+
 </body>
 </html>
+
+<script>
+$('#new_btn').on('click',function(){
+        var btn = $('#new_btn').val();
+        if(btn=='hide'){
+        $('#blog_table').show();
+        $('#new_btn').val('show');
+        }else{
+        $('#blog_table').hide();
+        $('#new_btn').val('hide');
+        }
+});
+
+$('#reset_btn').on('click',function(){
+      $('#blog_title').val(``);
+      $('#blog_content').val(``);
+      $('#genre_pulldown').val(``);
+});
+
+
+
+</script>

@@ -15,7 +15,7 @@ class MainController(private val articleService: ArticleService) {
 
     @RequestMapping("/main")
     fun mainPage():String{
-        return "Main"
+        return "main"
     }
 
     @RequestMapping("/")
@@ -24,7 +24,7 @@ class MainController(private val articleService: ArticleService) {
     //    @GetMapping("/main")
     @GetMapping("/test")
     fun main(): String {
-        return "sasaki"
+        return "main"
     }
 
     @RequestMapping("/title", method = [RequestMethod.GET, RequestMethod.POST])
