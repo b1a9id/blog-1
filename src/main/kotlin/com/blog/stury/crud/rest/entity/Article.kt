@@ -1,4 +1,4 @@
-package com.blog.stury.crud.rest.blog.dto
+package com.blog.stury.crud.rest.entity
 
 import java.util.*
 import javax.persistence.*
