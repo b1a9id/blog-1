@@ -27,9 +27,9 @@
         <td>
             <select id="genre_pulldown">
                 <option value="0">-- Choose --</option>
-                <option value="1">仕事</option>
-                <option value="2">映画</option>
-                <option value="3">小説</option>
+                <option value="仕事">仕事</option>
+                <option value="映画">映画</option>
+                <option value="小説">小説</option>
             </select></td>
     </tr>
     <tr>
@@ -66,6 +66,30 @@ $('#reset_btn').on('click',function(){
       $('#genre_pulldown').val(``);
 });
 
+$('#register_btn').on('click',function(){
+    var title = $("#blog_title").val();
+    var content = $("#blog_content").val();
+    var genre = $('#genre_pulldown').val();
+    let article={
+            title: title,
+            content: content,
+            genre: genre };
+    console.log(article);
+    postArticle(article);
+});
+
+function postArticle(article) {
+    $.ajax({
+      type: "post",
+      url: "http://localhost:8080/blog/register",
+      data: { article: article },
+      dataType: "json"
+    }).then(function (data) {
+      console.log(data);
+    }, function(XMLHttpRequest, textStatus, errorThrown) {
+      console.log(XMLHttpRequest, textStatus, errorThrown);
+    });
+    }
 
 
 </script>

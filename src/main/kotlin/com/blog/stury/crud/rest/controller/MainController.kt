@@ -14,12 +14,26 @@ import org.springframework.web.bind.annotation.*
 class MainController(private val articleService: ArticleService) {
 
     @RequestMapping("/main")
-    fun mainPage():String{
+    fun mainPage(): String {
         return "main"
     }
 
     @RequestMapping("/")
-    fun hogehoge():String{return "hogehogeghoege"}
+    fun hogehoge(): String {
+        return "hogehogeghoege"
+    }
+
+    @ResponseBody
+    @RequestMapping("/register")
+    fun register(@RequestBody article: String) {
+        try {
+            println(article)
+            println("SUCCESS!")
+        }catch(e:java.lang.Exception){
+            println("Post failed msg: ${e.message}")
+        }
+    }
+
 
     //    @GetMapping("/main")
     @GetMapping("/test")
@@ -31,11 +45,6 @@ class MainController(private val articleService: ArticleService) {
     fun getTitle(): String {
         return articleService.findById(1).title
     }
-
-//    @PostMapping
-//    fun addArticle(@Valid @ModelAttribute article: Article) {
-//        articleService.addArticle(article)
-//    }
 
     @RequestMapping("/blog/{id}")  // required false -> 任意
     fun getOneArticleById(@PathVariable(name = "id", required = false) id: Int): Article {
